@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ BAJRANG | Professional DJ & Event Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B00;
+            --primary-dark: #E55A00;
+            --secondary: #00A8FF;
+            --accent: #FFE500;
+            --dark: #0A0A14;
+            --dark-light: #1A1A24;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Custom Logo Style */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(255, 107, 0, 0.8), 0 0 40px rgba(255, 229, 0, 0.4); }
+        }
+
+        .logo-icon::before {
+            content: "B";
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--dark);
+        }
+
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            bottom: -5px;
+            right: -5px;
+            border: 3px solid var(--dark);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text span:first-child {
+            font-size: 24px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 15px 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-login {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-signup {
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 180px 5% 120px;
+            text-align: center;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 107, 0, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 168, 255, 0.1) 0%, transparent 50%);
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* About Section */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin: 40px 0 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .about-container {
+            padding: 0 5% 100px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 5px solid transparent;
+            background: linear-gradient(45deg, var(--primary), var(--accent)) border-box;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Services Section */
+        .services-container {
+            padding: 0 5% 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: var(--dark-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 107, 0, 0.1);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: var(--dark);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-align: right;
+        }
+
+        /* Equipment Section */
+        .equipment-container {
+            padding: 0 5% 100px;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .equipment-item {
+            background-color: var(--dark-light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+
+        .equipment-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+
+        .equipment-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            padding: 0 5% 100px;
+            position: relative;
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--dark-light);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 20px;
+            position: relative;
+            border-left: 5px solid var(--primary);
+        }
+
+        .testimonial::before {
+            content: "\201C";
+            font-size: 5rem;
+            color: var(--primary);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .author-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--dark-light), var(--dark));
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 40px rgba(255, 107, 0, 0.3);
+            animation: modalFade 0.4s;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-60px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-header {
+            padding: 25px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            background-color: rgba(10, 10, 20, 0.7);
+            color: var(--light);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--light);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 2001;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--gray);
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-light);
+            padding: 60px 5% 30px;
+            border-top: 1px solid rgba(255, 107, 0, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 107, 0, 0.1);
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-stats {
+                gap: 40px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--light);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 150px 5% 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">
+                <span>DJ BAJRANG</span>
+                <span>PROFESSIONAL DJ SERVICES</span>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#equipment">Equipment</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="auth-buttons">
+            <button class="btn btn-login" id="openLogin">Client Login</button>
+            <button class="btn btn-signup" id="openSignup">Book Now</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1><span>DJ BAJRANG</span>ELECTRIFYING EVENTS SINCE 2010</h1>
+        <p class="hero-tagline">Professional DJ & Event Services for Weddings, Corporate Events, Parties, and Celebrations Across India</p>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Events Hosted</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Cities Covered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <h2 class="section-title" id="about">ABOUT DJ BAJRANG</h2>
+    <div class="about-container">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="DJ Bajrang">
+        </div>
+        <div class="about-content">
+            <h3>India's Premier DJ & Event Specialist</h3>
+            <p>With over 12 years of experience in the music and entertainment industry, DJ Bajrang has become synonymous with high-energy performances and seamless event execution. Starting his career in Mumbai's vibrant club scene, he quickly gained recognition for his unique ability to read crowds and create unforgettable musical journeys.</p>
+            <p>Specializing in weddings, corporate events, and large-scale parties, DJ Bajrang combines traditional Indian music with contemporary international hits, creating a fusion that appeals to all generations. His signature style involves interactive performances that get everyone on the dance floor.</p>
+            <p>What sets DJ Bajrang apart is his commitment to personalized service. Every event receives customized playlists, professional-grade sound and lighting equipment, and a dedicated team ensuring everything runs smoothly from start to finish.</p>
+            <p class="signature">- DJ Bajrang</p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <h2 class="section-title" id="services">PROFESSIONAL SERVICES</h2>
+    <div class="services-container">
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-glass-cheers"></i>
+            </div>
+            <div class="service-content">
+                <h3 class="service-title">Wedding & Marriage Events</h3>
+                <ul class="service-features">
+                    <li>Complete wedding music planning (Sangeet to Reception)</li>
+                    <li>Traditional & contemporary music fusion</li>
+                    <li>Customized playlist for each ceremony</li>
+                    <li>Professional MC services</li>
+                    <li>Coordinated performance with live musicians</li>
+                    <li>Premium sound & lighting for venues</li>
+                </ul>
+                <div class="service-price">Starting at ₹1,50,000</div>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="service-content">
+                <h3 class="service-title">Corporate Events</h3>
+                <ul class="service-features">
+                    <li>Annual functions and award ceremonies</li>
+                    <li>Product launches and brand promotions</li>
+                    <li>Conference entertainment and background music</li>
+                    <li>Team building events and parties</li>
+                    <li>Professional emcee services</li>
+                    <li>Brand-appropriate music selection</li>
+                </ul>
+                <div class="service-price">Starting at ₹75,000</div>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="service-content">
+                <h3 class="service-title">Private Parties & Celebrations</h3>
+                <ul class="service-features">
+                    <li>Birthday and anniversary parties</li>
+                    <li>Festival celebrations (Diwali, Holi, etc.)</li>
+                    <li>Engagement and pre-wedding functions</li>
+                    <li>Themed party music curation</li>
+                    <li>Interactive dance sessions</li>
+                    <li>Photo booth and entertainment add-ons</li>
+                </ul>
+                <div class="service-price">Starting at ₹50,000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Equipment Section -->
+    <h2 class="section-title" id="equipment">PREMIUM EQUIPMENT</h2>
+    <div class="equipment-container">
+        <div class="equipment-grid">
+            <div class="equipment-item">
+                <div class="equipment-icon">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <h4>Sound Systems</h4>
+                <p>High-end Pioneer & Bose systems with crystal clear acoustics</p>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h4>Lighting</h4>
+                <p>Intelligent moving heads, lasers, and LED walls for stunning visuals</p>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h4>Visuals & Screens</h4>
+                <p>Large format LED screens and projection mapping</p>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h4>DJ Controllers</h4>
+                <p>Pioneer CDJ-3000 & DJM-900 Nexus setups</p>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h4>Microphones</h4>
+                <p>Wireless Shure & Sennheiser systems for crystal clear audio</p>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h4>Special Effects</h4>
+                <p>CO2 cannons, confetti bursts, and fog machines</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <h2 class="section-title" id="testimonials">CLIENT TESTIMONIALS</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p class="testimonial-text">"DJ Bajrang made our wedding unforgettable! He understood exactly what we wanted - a perfect mix of traditional Punjabi music and modern hits that kept everyone dancing all night. His team was professional, punctual, and the equipment was top-notch."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RS</div>
+                    <div class="author-info">
+                        <h4>Raj & Simran Singh</h4>
+                        <p>Wedding Client, Delhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">CLIENT LOGIN</h2>
+            </div>
+            <button class="close-modal" id="closeLogin">&times;</button>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your registered email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="modal-btn">Login to Dashboard</button>
+                </form>
+                <div class="form-footer">
+                    <p>New client? <a href="#" id="switchToSignup">Book your event here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup/Booking Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">BOOK YOUR EVENT</h2>
+            </div>
+            <button class="close-modal" id="closeSignup">&times;</button>
+            <div class="modal-body">
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name *</label>
+                        <input type="text" id="signupName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number *</label>
+                        <input type="tel" id="signupPhone" placeholder="Enter your WhatsApp number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address *</label>
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEvent">Event Type *</label>
+                        <select id="signupEvent" required>
+                            <option value="">Select event type</option>
+                            <option value="wedding">Wedding/Marriage</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="party">Private Party</option>
+                            <option value="other">Other Celebration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Event Date *</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventLocation">Event Location (City) *</label>
+                        <input type="text" id="eventLocation" placeholder="Enter event city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDetails">Additional Details</label>
+                        <textarea id="eventDetails" rows="3" placeholder="Tell us about your event requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="modal-btn">Submit Booking Request</button>
+                </form>
+                <div class="form-footer">
+                    <p>Already a client? <a href="#" id="switchToLogin">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="logo">
+                    <div class="logo-icon" style="width: 40px; height: 40px;"></div>
+                    <div class="logo-text">
+                        <span style="font-size: 20px;">DJ BAJRANG</span>
+                        <span style="font-size: 10px;">PROFESSIONAL DJ SERVICES</span>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: var(--gray);">Creating unforgettable musical experiences across India since 2010. Professional DJ services for all occasions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-spotify"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About DJ Bajrang</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services & Pricing</a></li>
+                    <li><a href="#equipment"><i class="fas fa-chevron-right"></i> Equipment</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wedding DJ Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Events</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Private Parties</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Festival Celebrations</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Destination Weddings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a></li>
+                    <li><a href="mailto:booking@djbajrang.com"><i class="fas fa-envelope"></i> booking@djbajrang.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Based in Jharsuguda , Odisha</a></li>
+                    <li><a href="#"><i class="fas fa-globe"></i> Serving All India</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> 24/7 Booking Available</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 DJ BAJRANG. All Rights Reserved. | Professional DJ & Event Services</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Website designed exclusively for DJ Bajrang</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const openLoginBtn = document.getElementById('openLogin');
+        const openSignupBtn = document.getElementById('openSignup');
+        const closeLoginBtn = document.getElementById('closeLogin');
+        const closeSignupBtn = document.getElementById('closeSignup');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const header = document.getElementById('header');
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Open Login Modal
+        openLoginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+            signupModal.style.display = 'none';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Open Signup Modal
+        openSignupBtn.addEventListener('click', () => {
+            signupModal.style.display = 'flex';
+            loginModal.style.display = 'none';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close Modals
+        closeLoginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        closeSignupBtn.addEventListener('click', () => {
+            signupModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Switch between Login and Signup
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            signupModal.style.display = 'flex';
+        });
+
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target === signupModal) {
+                signupModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Form Submissions
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simulate login process
+            alert(`Welcome back! You're now logged in to your DJ Bajrang client dashboard.\n\n(Client Portal Access: ${email})`);
+            
+            // Close modal after "login"
+            loginModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Update UI to show logged in state
+            openLoginBtn.textContent = "My Dashboard";
+            openLoginBtn.style.background = "linear-gradient(45deg, var(--secondary), #0088CC)";
+            openLoginBtn.style.border = "none";
+        });
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const phone = document.getElementById('signupPhone').value;
+            const email = document.getElementById('signupEmail').value;
+            const eventType = document.getElementById('signupEvent').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const location = document.getElementById('eventLocation').value;
+            const details = document.getElementById('eventDetails').value;
+            
+            // Format event type for display
+            const eventTypeText = {
+                'wedding': 'Wedding/Marriage',
+                'corporate': 'Corporate Event',
+                'party': 'Private Party',
+                'other': 'Other Celebration'
+            }[eventType] || 'Event';
+            
+            // Format date for display
+            const formattedDate = new Date(eventDate).toLocaleDateString('en-IN', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Show confirmation message
+            alert(`🎉 Thank you for your booking request, ${name}!\n\n📋 Booking Details:\n• Event: ${eventTypeText}\n• Date: ${formattedDate}\n• Location: ${location}\n\nWe've received your request and our team will contact you at ${phone} within 24 hours to discuss your event requirements and confirm availability.\n\nYou'll also receive a confirmation email at ${email} with preliminary information.`);
+            
+            // Close modal after "signup"
+            signupModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            signupForm.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .footer-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 992) {
+                            const navUl = document.querySelector('nav ul');
+                            if(navUl && navUl.style.display === 'flex') {
+                                navUl.style.display = 'none';
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Set minimum date for booking to today
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const formattedDate = tomorrow.toISOString().split('T')[0];
+        document.getElementById('eventDate').min = formattedDate;
+
+        // Add some interactive animations to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Add floating animation to logo on hover
+        document.querySelector('.logo-icon').addEventListener('mouseenter', function() {
+            this.classList.add('floating');
+        });
+        
+        document.querySelector('.logo-icon').addEventListener('mouseleave', function() {
+            this.classList.remove('floating');
+        });
+
+        // Initialize with header class
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        }
+    </script>
+</body>
+</html>
